@@ -1,6 +1,14 @@
 // variable containing the number of questions in the quiz
 var quizLength = 2;
 
+// variables that contain the elements of each part of the quiz
+var questionEl = document.querySelector("#question");
+var optionOneEl = document.querySelector("#option-one");
+var optionTwoEl = document.querySelector("#option-two");
+var optionThreeEl = document.querySelector("#option-three");
+var optionFourEl = document.querySelector("#option-four");
+
+
 // array containing all of the questions and possible answers
 var questions = [
     {
@@ -38,5 +46,3 @@ var questions = [
         o2: "They leave behind Sir Gallahad",
         o3: "They poke at it with the pointy bit of their swords"
     }];
-
-console.log(questions);
