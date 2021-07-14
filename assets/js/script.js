@@ -46,3 +46,24 @@ var questions = [
         o2: "They leave behind Sir Gallahad",
         o3: "They poke at it with the pointy bit of their swords"
     }];
+
+for (var i = 0; i < quizLength; i++) {
+    // variable to pick a random question from the array
+    var questionAsked = questions[Math.floor(Math.random() * questions.length)];
+
+    // variables to store random choices from the chosen question
+    var optionChoice1 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+    var optionChoice2 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+    var optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+    var optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+
+    // setting the question to be displayed
+    questionEl.textContent = questionAsked.q;
+
+    // adding random choices to each option
+    optionOneEl.textContent = optionChoice1;
+    optionTwoEl.textContent = optionChoice2;
+    optionThreeEl.textContent = optionChoice3;
+    optionFourEl.textContent = optionChoice4;
+};
+
