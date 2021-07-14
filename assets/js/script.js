@@ -81,7 +81,7 @@ for (var i = 0; i < quizLength; i++) {
             optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
         };
     };
-    
+
     // setting the question to be displayed
     questionEl.textContent = questionAsked.q;
 
