@@ -57,6 +57,31 @@ for (var i = 0; i < quizLength; i++) {
     var optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
     var optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
 
+    // adding while loops and if statements to ensure there are no duplicate answers
+    while (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
+        if (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
+            var optionChoice1 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    while (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
+        if (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
+            optionChoice2 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    while (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
+        if (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
+            optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    while (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
+        if (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
+            optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+    
     // setting the question to be displayed
     questionEl.textContent = questionAsked.q;
 
