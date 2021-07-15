@@ -17,6 +17,7 @@ var choiceTwoEl = document.querySelector("#choice-two");
 var choiceThreeEl = document.querySelector("#choice-three");
 var choiceFourEl = document.querySelector("#choice-four");
 
+// variable to target the submit button
 var submitEl = document.querySelector("#submit");
 
 // array containing all of the questions and possible answers
@@ -66,43 +67,50 @@ var optionChoice2 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.ran
 var optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
 var optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
 
-// adding while loops and if statements to ensure there are no duplicate answers
-while (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
-    if (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
-        optionChoice1 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+// a function to generate each questions with variety in the options
+var generateQuestion = function () {
+
+    // adding while loops and if statements to ensure there are no duplicate answers
+    while (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
+        if (optionChoice1 === optionChoice2 || optionChoice1 === optionChoice3 || optionChoice1 === optionChoice4) {
+            optionChoice1 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
     };
+
+    while (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
+        if (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
+            optionChoice2 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    while (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
+        if (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
+            optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    while (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
+        if (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
+            optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
+        };
+    };
+
+    // setting the question to be displayed
+    questionEl.textContent = questionAsked.q;
+
+    // adding random choices to each option
+    optionOneEl.textContent = optionChoice1;
+    optionTwoEl.textContent = optionChoice2;
+    optionThreeEl.textContent = optionChoice3;
+    optionFourEl.textContent = optionChoice4;
 };
 
-while (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
-    if (optionChoice2 === optionChoice1 || optionChoice2 === optionChoice3 || optionChoice2 === optionChoice3) {
-        optionChoice2 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
-    };
+for (var i = 0; i < quizLength; i++) {
+    generateQuestion();
 };
 
-while (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
-    if (optionChoice3 === optionChoice1 || optionChoice3 === optionChoice2 || optionChoice3 === optionChoice4) {
-        optionChoice3 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
-    };
-};
+submitEl.addEventListener("click", function() {
 
-while (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
-    if (optionChoice4 === optionChoice1 || optionChoice4 === optionChoice2 || optionChoice4 === optionChoice3) {
-        optionChoice4 = questionAsked[Object.keys(questionAsked)[Math.floor(Math.random() * (4 - 1 + 1) + 1)]];
-    };
-};
-
-// setting the question to be displayed
-questionEl.textContent = questionAsked.q;
-
-// adding random choices to each option
-optionOneEl.textContent = optionChoice1;
-optionTwoEl.textContent = optionChoice2;
-optionThreeEl.textContent = optionChoice3;
-optionFourEl.textContent = optionChoice4;
-
-
-submitEl.addEventListener("click", function(event) {
-    event.preventDefault();
 
     if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
         alert("That is correct");
