@@ -1,5 +1,6 @@
 // variable containing the number of questions in the quiz and the question number
 var quizLength = 2;
+var questionNumber = 1;
 
 // variable to hold the score
 var score = 0;
@@ -105,22 +106,64 @@ var generateQuestion = function () {
     optionFourEl.textContent = optionChoice4;
 };
 
-for (var i = 0; i < quizLength; i++) {
-    generateQuestion();
+// function to fetch the question number from local storage 
+var getQuestionNumber = function() {
+    questionNumber = localStorage.getItem("questionNumber");
 };
 
-submitEl.addEventListener("click", function() {
-
-
-    if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
-        alert("That is correct");
-    } else if (choiceTwoEl.checked === true && optionTwoEl.textContent === questionAsked.a) {
-        alert("That is correct");
-    } else if (choiceThreeEl.checked === true && optionThreeEl.textContent === questionAsked.a) {
-        alert("That is correct");
-    } else if (choiceFourEl.checked === true && optionFourEl.textContent === questionAsked.a) {
-        alert("That is correct");
+// function to set the question number to keep track of which question it is
+var setQuestionNumber = function() {
+    if (localStorage.getItem("questionNumber") === null) {
+        localStorage.setItem("questionNumber", questionNumber);
     } else {
-        alert("That is wrong");
+        localStorage.setItem("questionNumber", questionNumber);
+    }
+}
+
+var resetQuiz = function() {
+    getQuestionNumber();
+    questionNumber = 0;
+    setQuestionNumber();
+    score = 0;
+}
+
+// main function that runs the quiz
+var main = function() {
+    // gets the question number from local storage
+    getQuestionNumber();
+
+    // checks to see if the questionNumber variable is less than the quiz length
+    if (questionNumber < quizLength) {
+        // generates the question that is displayed on screen
+        generateQuestion();
+
+        submitEl.addEventListener("click", function() {
+
+            if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
+                alert("That is correct");
+            } else if (choiceTwoEl.checked === true && optionTwoEl.textContent === questionAsked.a) {
+                alert("That is correct");
+            } else if (choiceThreeEl.checked === true && optionThreeEl.textContent === questionAsked.a) {
+                alert("That is correct");
+            } else if (choiceFourEl.checked === true && optionFourEl.textContent === questionAsked.a) {
+                alert("That is correct");
+            } else {
+                alert("That is wrong");
+            };
+
+            getQuestionNumber();
+            questionNumber++;
+            setQuestionNumber();
+        });
+    } else {
+        alert("Game Over!");
+        var playAgain = confirm("Would you like to play again?");
+        if (playAgain) {
+            resetQuiz();
+            main();
+        }
     };
-});
+}
+
+main();
+
