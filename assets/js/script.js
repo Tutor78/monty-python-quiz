@@ -120,6 +120,7 @@ var setQuestionNumber = function() {
     }
 }
 
+// function to reset the quiz numbers
 var resetQuiz = function() {
     getQuestionNumber();
     questionNumber = 0;
@@ -139,6 +140,7 @@ var main = function() {
 
         submitEl.addEventListener("click", function() {
 
+            // checks to see which option has been chosen and compares it to the answer of the question
             if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
                 alert("That is correct");
             } else if (choiceTwoEl.checked === true && optionTwoEl.textContent === questionAsked.a) {
@@ -151,13 +153,16 @@ var main = function() {
                 alert("That is wrong");
             };
 
+            // increments and sets the questionNumber variable to localStorage
             getQuestionNumber();
             questionNumber++;
             setQuestionNumber();
         });
+    // after the number of questions reaches the quiz length it asks if the player would like to play again
     } else {
         alert("Game Over!");
         var playAgain = confirm("Would you like to play again?");
+        // if the player chooses to play again it resets the quiz and runs the main function again
         if (playAgain) {
             resetQuiz();
             main();
