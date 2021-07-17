@@ -2,8 +2,9 @@
 var quizLength = 4;
 var questionNumber = 1;
 
-// variable to hold the score
+// variable to hold the score and highscore
 var score = 0;
+var highscore = 0;
 
 // variables that contain the elements of each part of the quiz
 var titleEl = document.querySelector("#title");
@@ -75,30 +76,32 @@ var questionAsked = questions[Math.floor(Math.random() * questions.length)];
 
 // function to choose a question that has not been asked
 var generateQuestion = function() {
+    // retrieves the quizId array from localStorage
     var existingQuizId = JSON.parse(localStorage.getItem("quizId"));
     
+    // checks to see if the array in localStorage exists and if not creates it
     if (existingQuizId == null) {
         existingQuizId = [];
         localStorage.setItem("quizId", existingQuizId);
-    }
+    };
 
-    for (i = 0; i < existingQuizId.length; i++) {
+    // checks to see if the question has been asked before and if it has generates another one
+    for ( var i = 0; i < existingQuizId.length; i++) {
         while (questionAsked.id == existingQuizId[i]) {
             if (questionAsked.id == existingQuizId[i]) {
                 questionAsked = questions[Math.floor(Math.random() * questions.length)];
             } else {
                 return questionAsked;
-            }
+            };
         };
     };
 
+    // generates the options based on the question that is asked
     generateOptions(questionAsked);
-    console.log(questionAsked);
 
+    // appends the id of the current question to and pushes it to localStorage
     quizId = questionAsked.id
-
     existingQuizId.push(quizId);
-
     localStorage.setItem("quizId", JSON.stringify(existingQuizId));
 };
 
@@ -146,28 +149,28 @@ var generateOptions = function (questionOptions) {
     optionFourEl.textContent = optionChoice4;
 };
 
-// function to set the question number to keep track of which question it is
-var setQuestionNumber = function() {
-    if (localStorage.getItem("questionNumber") === null) {
-        localStorage.setItem("questionNumber", questionNumber);
-    } else {
-        localStorage.setItem("questionNumber", questionNumber);
-    }
+// function to add to and set score
+var increaseScore = function() {
+    score = localStorage.getItem("score");
+    score++;
+    localStorage.setItem("score", score);
 };
 
 // function to reset the quiz numbers
 var resetQuiz = function() {
     questionNumber = 0;
-    setQuestionNumber();
+    localStorage.setItem("questionNumber", questionNumber);
     existingQuizId = [];
     localStorage.setItem("quizId", JSON.stringify(existingQuizId));
     score = 0;
-}
+    localStorage.setItem("score", score);
+};
 
 // main function that runs the quiz
 var main = function() {
     // gets the question number from local storage
     questionNumber = localStorage.getItem("questionNumber");
+    score = localStorage.getItem("score");
 
     // checks to see if the questionNumber variable is less than the quiz length
     if (questionNumber < quizLength) {
@@ -179,24 +182,40 @@ var main = function() {
             // checks to see which option has been chosen and compares it to the answer of the question
             if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
                 alert("That is correct");
+                increaseScore();
             } else if (choiceTwoEl.checked === true && optionTwoEl.textContent === questionAsked.a) {
                 alert("That is correct");
+                increaseScore();
             } else if (choiceThreeEl.checked === true && optionThreeEl.textContent === questionAsked.a) {
                 alert("That is correct");
+                increaseScore();
             } else if (choiceFourEl.checked === true && optionFourEl.textContent === questionAsked.a) {
                 alert("That is correct");
+                increaseScore();
             } else {
                 alert("That is wrong");
             };
 
+            console.log(score);
+
             // increments and sets the questionNumber variable to localStorage
             questionNumber = localStorage.getItem("questionNumber");
             questionNumber++;
-            setQuestionNumber();
+            localStorage.setItem("questionNumber", questionNumber);
         });
     // after the number of questions reaches the quiz length it asks if the player would like to play again
     } else {
-        alert("Game Over!");
+        score = localStorage.getItem("score");
+        highscore = localStorage.getItem("highscore");
+
+        if (score > highscore) {
+            highscore = score;
+            localStorage.setItem("highscore", highscore);
+            alert("New highscore of " + highscore + " out of " + quizLength + "!");
+        }
+
+        alert("Game Over! Your score is " + score + " out of " + quizLength + "!");
+        alert("The current highscore is " + highscore + " out of " + quizLength + " correct!");
         var playAgain = confirm("Would you like to play again?");
         // if the player chooses to play again it resets the quiz and runs the main function again
         if (playAgain) {
@@ -204,7 +223,7 @@ var main = function() {
             main();
         }
     };
-}
+};
 
-
+// runs the quiz
 main();
