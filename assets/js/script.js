@@ -205,23 +205,26 @@ var main = function() {
         });
     // after the number of questions reaches the quiz length it asks if the player would like to play again
     } else {
+        // retrieves the score and highscore
         score = localStorage.getItem("score");
         highscore = localStorage.getItem("highscore");
 
+        // if the current score is higher than the highscore it changes the highscore to match the score
         if (score > highscore) {
             highscore = score;
             localStorage.setItem("highscore", highscore);
             alert("New highscore of " + highscore + " out of " + quizLength + "!");
-        }
+        };
 
         alert("Game Over! Your score is " + score + " out of " + quizLength + "!");
         alert("The current highscore is " + highscore + " out of " + quizLength + " correct!");
+        // asks the player if they want to play again
         var playAgain = confirm("Would you like to play again?");
         // if the player chooses to play again it resets the quiz and runs the main function again
         if (playAgain) {
             resetQuiz();
             main();
-        }
+        };
     };
 };
 
