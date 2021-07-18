@@ -94,6 +94,7 @@ ul li label {
     font-weight: bold;
     font-size: 1.5rem;
     text-decoration: underline;
+    text-align: center;
 }
 
 /* styles for the final page on the quiz */
