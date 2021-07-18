@@ -1,35 +1,31 @@
 * {
-    border: 0;
+    padding: 5px;
     margin: 0;
-}
-
-:root {
-    --primary-color: #051622;
-    --secondary-color: #1BA098;
-    --tertiary-color: #DEB992;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: bold;
-    padding: 25px 0;
-    width: 100%;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    font-size: 1.5rem;
+    padding: 12px;
 }
 
 header h1 {
     padding: 10px;
+    font-size: 1.25;
+}
+
+#timer {
+    font-size: 1.5rem;
+    padding: 8px;
+    font-weight: bold;
+    margin: auto 0;
 }
 
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
     padding: 15px;
     margin: auto;
 }
@@ -63,6 +59,10 @@ ul li {
     width: auto;
 }
 
+ul li:hover {
+    text-decoration: underline;
+}
+
 ul li input {
     margin: 5px;
     padding: 5px;
@@ -76,11 +76,12 @@ ul li label {
 
 #submit {
     margin: 10px auto;
+    font-size: 1.5rem;
     padding: 8px;
     border-radius: 15px;
     width: fit-content;
-    background-color: #051622;
-    color: #DEB992;
+    background-color: black;
+    color: white;
 }
 
 #submit:hover {
@@ -116,8 +117,8 @@ ul li label {
     font-size: 1.5rem;
     padding: 12px;
     border-radius: 15px;
-    background-color: var(--primary-color);
-    color: var(--tertiary-color);
+    background-color: black;
+    color: white;
 }
 
 #play-again:hover {
@@ -126,6 +127,74 @@ ul li label {
 }
 
 
+@media screen and (max-width: 740px) {
+    header{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #congrats {
+        font-size: 2.25rem;
+        margin: 10px;
+    }
+
+    #score, #highscore {
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+    #play-again {
+        font-size: 1.25rem;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+
+    #title {
+        font-size: 1.25rem;
+    }
+
+    #timer {
+        margin: 0;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    #question {
+        font-size: 1.15rem;
+        margin: 0;
+    }
+
+    ul li {
+        margin: 15px auto;
+    }
+
+    ul li label {
+        font-size: 1.15rem;
+    }
+
+    .feedback {
+        font-size: 1.25rem;
+    }
+
+    #submit {
+        font-size: 1.25rem;
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #congrats {
+        font-size: 1.75rem;
+    }
+
+    #score, #highscore {
+        font-size: 1.5rem;
+    }   
+}
 
 
 
