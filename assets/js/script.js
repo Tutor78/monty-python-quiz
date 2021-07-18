@@ -302,7 +302,7 @@ var main = function() {
     score = localStorage.getItem("score");
 
     window.onload = function() {
-        var countDownTime = window.sessionStorage.getItem(timeLeft) || 1800;
+        var countDownTime = window.sessionStorage.getItem(timeLeft) || 900;
         timer(countDownTime, function() {
             timerEl.textContent = countDownTime;
         });
@@ -319,7 +319,7 @@ var main = function() {
         // generates the question that is displayed on screen
         generateQuestion();
 
-        submitEl.addEventListener("click", function() {
+        submitEl.addEventListener("click", function(event) {
 
             // checks to see which option has been chosen and compares it to the answer of the question
             if (choiceOneEl.checked === true && optionOneEl.textContent === questionAsked.a) {
@@ -355,7 +355,17 @@ var main = function() {
     } else {
         // retrieves the score and highscore
         score = localStorage.getItem("score");
+
+        if (score == null) {
+            score = 0;
+        };
+
         highscore = localStorage.getItem("highscore");
+
+        if (highscore == null) {
+            highscore = 0;
+        }
+
         var playerName;
 
         // changes the html of the main element to display different information
@@ -375,6 +385,10 @@ var main = function() {
         };
 
         playerName = localStorage.getItem("playerName");
+
+        if (playerName == null) {
+            playerName = "Nobody";
+        }
 
         // displays the score and highscore of previous quizzes
         scoreEl.textContent = "You got " + score + " out of " + quizLength + " correct!";
