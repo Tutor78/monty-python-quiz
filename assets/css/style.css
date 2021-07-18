@@ -3,6 +3,129 @@
     margin: 0;
 }
 
+:root {
+    --primary-color: #051622;
+    --secondary-color: #1BA098;
+    --tertiary-color: #DEB992;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 25px 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+header h1 {
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 15px;
+    margin: auto;
+}
+
+#title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+#question {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 10px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    margin: 5px auto;
+}
+
 ul li {
     list-style-type: none;
+    margin: 7px;
+    width: auto;
 }
+
+ul li input {
+    margin: 5px;
+    padding: 5px;
+}
+
+ul li label {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 15px;
+}
+
+#submit {
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 15px;
+    width: fit-content;
+    background-color: #051622;
+    color: #DEB992;
+}
+
+#submit:hover {
+    text-decoration: underline;
+    padding: 10px;
+}
+
+.feedback {
+    margin: 5px auto;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+/* styles for the final page on the quiz */
+#congrats {
+    margin: 15px;
+    font-size: 2.75rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#score, #highscore {
+    margin: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#play-again {
+    margin: 5px auto;
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+}
+
+#play-again:hover {
+    padding: 15px;
+    text-decoration: underline;
+}
+
+
+
+
+
