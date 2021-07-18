@@ -385,7 +385,7 @@ var main = function() {
         // places a listener on the play again button which resets the quiz
         playAgainEl.addEventListener("click", function() {
             resetQuiz();
-            window.location.reload();
+            window.location.href = "./index.html";
         });
     };
 };
