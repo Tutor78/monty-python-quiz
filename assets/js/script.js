@@ -273,6 +273,7 @@ var resetQuiz = function() {
     main();
 };
 
+// this timer creates persistance through sessionStorage
 var timer = function(i, callback) {  
     //callback = callback || function(){};
     timer = setInterval(function() {
@@ -301,7 +302,9 @@ var main = function() {
     questionNumber = localStorage.getItem("questionNumber");
     score = localStorage.getItem("score");
 
+    // this will check for the time left and persist the quiz timer through a browser refresh
     window.onload = function() {
+        // you can change the length of the timer by changing the 900. The number must be in an amount of seconds.
         var countDownTime = window.sessionStorage.getItem(timeLeft) || 900;
         timer(countDownTime, function() {
             timerEl.textContent = countDownTime;
@@ -384,6 +387,7 @@ var main = function() {
             localStorage.setItem("playerName", playerName);
         };
 
+        // this will retrieve the name of the player with the current highscore. If none exists and you scored 0 on the quiz it defaults to nobody
         playerName = localStorage.getItem("playerName");
 
         if (playerName == null) {
