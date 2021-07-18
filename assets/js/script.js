@@ -191,23 +191,21 @@ var generateQuestion = function() {
     };
 
     // checks to see if the question has been asked before and if it has generates another one
-    for ( var i = 0; i < existingQuizId.length; i++) {
-        while (questionAsked.id == existingQuizId[i]) {
-            if (questionAsked.id == existingQuizId[i]) {
-                questionAsked = questions[Math.floor(Math.random() * questions.length)];
-            } else {
-                return questionAsked;
-            };
+    // debugger;
+    while (existingQuizId.includes(questionAsked.id)) {
+        if (existingQuizId.includes(questionAsked.id)) {
+            questionAsked = questions[Math.floor(Math.random() * questions.length)];
         };
     };
-
-    // generates the options based on the question that is asked
-    generateOptions(questionAsked);
+        
 
     // appends the id of the current question to and pushes it to localStorage
     quizId = questionAsked.id
     existingQuizId.push(quizId);
     localStorage.setItem("quizId", JSON.stringify(existingQuizId));
+
+    // generates the options based on the question that is asked
+    generateOptions(questionAsked);
 };
 
 // a function to generate each questions with variety in the options
