@@ -1,5 +1,5 @@
 // variable containing the number of questions in the quiz and the question number
-var quizLength = 4;
+var quizLength = 10;
 var questionNumber = 1;
 
 // variable to store a session key for the timer
@@ -84,6 +84,96 @@ var questions = [
         o3: "They poke at it with the pointy bit of their swords",
         title: "The Search for the Holy Grail",
         id: 4
+    },
+    {
+        q: "While attempting to purchase cheese, the shopkeeper claims that it is the cleanest in the area. Why?",
+        a: "It is uncontanimated with cheese",
+        o1: "His pet cats take care of any pests",
+        o2: "The shopkeep does a daily walk around",
+        o3: "The local bobby keeps the riff raff away",
+        title: "Flying Circus",
+        id: 5
+    },
+    {
+        q: "What is the basis for which the peasants claim that a woman is a witch?",
+        a: "She turned one into a newt",
+        o1: "She is dressed like one",
+        o2: "She smells like one",
+        o3: "She has a wart",
+        title: "The Search for the Holy Grail",
+        id: 6
+    },
+    {
+        q: "What is the name of the enchanter that King Arthur and his knights happen upon during their travels?",
+        a: "Tim",
+        o1: "Steve",
+        o2: "Chuck",
+        o3: "Merlin",
+        title: "The Search for the Holy Grail",
+        id: 7
+    },
+    {
+        q: "What does one not expect?",
+        a: "The Spanish Inquisition",
+        o1: "A surprise birthday party",
+        o2: "A choir standing outside ones home",
+        o3: "A jolly fat man getting stuck in the chimney",
+        title: "Flying Circus",
+        id: 8
+    },
+    {
+        q: "While hanging on the cross what should one be thinking?",
+        a: "To always look on the brightside of life",
+        o1: "To always look on the darkside of life",
+        o2: "To contemplate one's choices that led to this predicament",
+        o3: "Nothing because soon you'll be lifeless",
+        title: "Life of Brian",
+        id: 9
+    },
+    {
+        q: "While looking for the correct room for an argument, what room does the fellow stumble into first?",
+        a: "Abuse",
+        o1: "Prop acting",
+        o2: "Sleeping on things",
+        o3: "Marriage Counseling",
+        title: "Flying Circus",
+        id: 10
+    },
+    {
+        q: "What branch of the Royal Society for Putting Things on Top of Other Things finds the whole thing a bit silly",
+        a: "Staffordshire",
+        o1: "London",
+        o2: "France",
+        o3: "Australasia",
+        title: "Flying Circus",
+        id: 11
+    },
+    {
+        q: "What is it that the Knights who say Ni require for passage?",
+        a: "A shrubbery",
+        o1: "A strong beverage",
+        o2: "Two fishes",
+        o3: "The holy grail",
+        title: "The Search for the Holy Grail",
+        id: 12
+    },
+    {
+        q: "During delivery of the baby there is something missing. What is it?",
+        a: "The patient",
+        o1: "The machine that goes bing",
+        o2: "The most expensive machines",
+        o3: "The doctors",
+        title: "The Meaning of Life",
+        id: 13
+    },
+    {
+        q: "When life gets you down what should be the one thing you remember?",
+        a: "Your insignificance",
+        o1: "That life isn't too bad",
+        o2: "There will always be something worse",
+        o3: "That the universe is massive",
+        title: "The Meaning of Life",
+        id: 14
     }];
 
 // variable to pick a random question from the array
