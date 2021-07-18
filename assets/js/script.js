@@ -384,6 +384,11 @@ var main = function() {
             highscore = score;
             localStorage.setItem("highscore", highscore);
             playerName = prompt("What is your name so that you may be stored in the archives?");
+
+            if (playerName == "") {
+                playerName = "Somebody";
+            };
+
             localStorage.setItem("playerName", playerName);
         };
 
