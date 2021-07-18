@@ -68,7 +68,7 @@ var questions = [
         id: 2
     },
     {
-        q: "According to the Holy Book of Armaments what is the number that though shalt count to before tossing the Holy Hand Grenade of Antioch?",
+        q: "According to the Holy Book of Armaments, what is the number that though shalt count to before tossing the Holy Hand Grenade of Antioch?",
         a: "The number which is Three",
         o1: "Maybe it could be One",
         o2: "Possibly the answer is Two",
@@ -125,7 +125,7 @@ var questions = [
         q: "While hanging on the cross what should one be thinking?",
         a: "To always look on the brightside of life",
         o1: "To always look on the darkside of life",
-        o2: "To contemplate one's choices that led to this predicament",
+        o2: "Contemplation about one's choices that led to this predicament",
         o3: "Nothing because soon you'll be lifeless",
         title: "Life of Brian",
         id: 9
